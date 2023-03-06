@@ -2,6 +2,10 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static io.restassured.RestAssured.given;
 
@@ -57,5 +61,28 @@ public class DemowebshopTests {
                 .body("success", is(true))
                 .body("message", is("The product has been added to your <a href=\"/cart\">shopping cart</a>"))
                 .body("updatetopcartsectionhtml", is("(3)"));
+    }
+
+
+    @Test
+    void addVirtualGiftCardToShoppingCart() {
+        Map<String, String> data = new HashMap<>();
+        data.put("giftcard_1.RecipientName", "Diana");
+        data.put("giftcard_1.RecipientEmail", "di@mail.com");
+        data.put("giftcard_1.SenderName", "olga");
+        data.put("giftcard_1.SenderEmail", "olga@mail.com");
+        data.put("giftcard_1.Message", "hbt");
+        data.put("addtocart_1.EnteredQuantity", "1");
+
+        given()
+                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
+                .formParams(data)
+                .when()
+                .post("/addproducttocart/details/1/1")
+                .then()
+                .statusCode(200)
+                .body("success", is(true))
+                .body("message", is("The product has been added to your <a href=\"/cart\">shopping cart</a>"))
+                .body("updatetopcartsectionhtml", is("(1)"));
     }
 }

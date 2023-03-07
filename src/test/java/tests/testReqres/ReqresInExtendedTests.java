@@ -1,12 +1,10 @@
 package tests.testReqres;
 
 import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import models.lombok.LoginBodyLombokModel;
-import models.lombok.LoginResponseLombokModel;
+import models.lombok.login.LoginBodyLombokModel;
+import models.lombok.login.LoginResponseLombokModel;
 import models.pojo.LoginBodyPojoModel;
 import models.pojo.LoginResponsePojoModel;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static helpers.CustomApiListener.withCustomTemplates;
@@ -148,4 +146,5 @@ public class ReqresInExtendedTests {
 
         assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
     }
+
 }

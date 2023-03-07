@@ -37,7 +37,7 @@ public class RegresInhw20Tests {
 
     @Test
     @DisplayName("Обновление пользователя")
-    void updateUsersWithSpecsTest(){
+    void updateUsersWithSpecsTest() {
         UpdateUserBody data = new UpdateUserBody();
         data.setName("morpheus");
         data.setJob("bom resident");
@@ -58,7 +58,7 @@ public class RegresInhw20Tests {
 
     @Test
     @DisplayName("Пользователь не найден")
-    void singleUserNotFound(){
+    void singleUserNotFound() {
 
         given(loginRequestSpec)
                 .log().uri()
@@ -72,8 +72,8 @@ public class RegresInhw20Tests {
 
     @Test
     @DisplayName("Получение пользователя по id")
-    void getUserId(){
-        SingleUserResponse response =  given(loginRequestSpec)
+    void getUserId() {
+        SingleUserResponse response = given(loginRequestSpec)
                 .when()
                 .get("/users/2")
                 .then()

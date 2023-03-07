@@ -8,6 +8,9 @@ repositories {
     mavenCentral()
 }
 
+compileJava.options.encoding("UTF-8")
+compileTestJava.options.encoding("UTF-8")
+
 def allureVersion = "2.19.0",
     assertJVersion = "3.23.1",
     slf4jVersion = "1.7.32"

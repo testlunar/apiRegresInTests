@@ -16,6 +16,7 @@ import static specs.LoginSpecs.loginRequestSpec;
 public class RegresInhw20Tests {
 
     @Test
+    @DisplayName("Создание пользователя")
     void createUserWithSpecsTest() {
         CreateUserBody data = new CreateUserBody();
         data.setName("morpheus");

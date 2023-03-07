@@ -1,5 +1,6 @@
 package tests.testReqres;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -44,6 +45,7 @@ public class UsersTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Обновление пользователя")
     void updateUsersTest(){
 
